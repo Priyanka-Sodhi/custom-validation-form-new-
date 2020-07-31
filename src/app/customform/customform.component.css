@@ -1,0 +1,75 @@
+.mydiv{
+  /* -webkit-filter: blur(5px); */
+  background-image: url("https://user-images.githubusercontent.com/66174600/89062156-93ad3500-d383-11ea-9087-bded9b1aa66f.jpg") ;
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+    background-size: 100% 100%;
+  /* display:inline-block; */
+  height:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:13px;
+  }
+.myform{
+  width:40%;
+  color:white;
+  background: rgba(0,0,0,0.5);
+  padding:30px;
+  border-radius:10px;
+}
+input{
+  font-weight:500;
+  background: none;
+  border-color: rgba(245, 245, 245, 0.507);
+}
+input:focus{
+  background: none;
+  color:white;
+}
+
+label{
+  font-size:19px;
+  font-style: italic;
+  font-weight:500;
+  /* color:rgb(216, 159, 216); */
+  background: -webkit-linear-gradient(rgb(250, 249, 250), magenta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+.btn{
+  width:100%;
+  /* background-color: darkmagenta; */
+  background-image: linear-gradient(rgb(187, 5, 187),rgb(49, 2, 49));
+  color:white;
+  font-size:20px;
+}
+.btn:not([disabled]):hover{
+  background-image: linear-gradient(rgb(87, 2, 87),rgb(15, 0, 15));
+  cursor:pointer;
+  transform: scale(1.07);
+}
+
+.text-dan{
+  font-size:16px;
+  font-weight:  bold;
+  background: -webkit-linear-gradient(rgb(252, 251, 249), rgb(245, 39, 2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style:italic;
+}
+input-group{
+  font-weight:500;
+  background: none;
+  border-color: rgba(245, 245, 245, 0.507);
+}
+input:focus{
+  background: none;
+  color:white;
+}
+i:hover{
+  color:black;
+  cursor: pointer;
+  transform: scale(1.5);
+}

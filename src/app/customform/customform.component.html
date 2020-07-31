@@ -1,0 +1,89 @@
+<div class="container-fluid mydiv" >
+  
+  <form [formGroup]="customForm" (ngSubmit)="onSubmit()" class="myform">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Successfully Submitted!</strong> 
+  <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button> 
+  </div> 
+    <div class="form-group">
+      <label>Name</label>
+      <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
+      <input required type="text" [class.is-invalid]="name.touched && name.invalid" placeholder="Enter your name" formControlName="name" class="form-control" >
+    
+      <div  class="text-dan" *ngIf="name.touched && name.invalid" >
+        <p *ngIf="name.errors?.required;">Name is mandatory!</p>
+        <p *ngIf="name.errors?.minlength && !name.errors?.namePattern;">Name must be atleast 4 characters Long!</p>
+        <p *ngIf="name.errors?.namePattern">Special characters or numbers not allowed!</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input required type="tel" placeholder="Enter your mobile number" class="form-control" formControlName="mobile" [class.is-invalid]="mobile.touched && mobile.invalid">
+
+      <div class="text-dan" *ngIf="mobile.touched && mobile.invalid" >
+        <p *ngIf="mobile.errors?.required">Mobile Number is mandatory!</p>
+        <p *ngIf="(mobile.errors?.minlength || mobile.errors?.maxlength) && !mobile.errors?.required && !mobile.errors?.mobPattern;">Mobile Number must be 10-digit long!</p>
+        <p *ngIf=" !mobile.errors?.required && mobile.errors?.mobPattern;">Please enter a valid number!</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email Id</label>
+      <input required type="email" placeholder="Enter your email id" class="form-control" formControlName="email" [class.is-invalid]="email.touched && email.invalid">
+
+      <div class="text-dan" *ngIf="email.touched && email.invalid" >
+        <p *ngIf="email.errors?.required">Email Id is mandatory!</p>
+        <p *ngIf="email.errors?.email">Please enter a valid email id!</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Create Password</label>
+      <div class="input-group">
+        <input required [type]="passwordType" placeholder="Enter your password"  formControlName="password" [class.is-invalid]="password.touched && password.invalid" class="form-control">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-eye" (click)="togglePassword()"></i>
+          </span>
+        </div>
+      </div>
+      <div class="text-dan" *ngIf="password.touched && password.invalid" >
+        <p *ngIf="password.errors?.required">Password is mandatory!</p>
+        <p *ngIf=" !password.errors?.required && password.errors?.pattern || password.errors?.minlength;">Password must be 8 characters long and must contain 1 number,1 capital letter,1 letter,1 special symbol!</p>
+      </div>
+    </div>
+
+  <div class="form-group">
+      <label>Confirm Password</label>
+      <div class="input-group">
+      <input required type="password" placeholder="Re-type your password" class="form-control" formControlName="confirmPassword" [class.is-invalid]="confirmPassword.touched && (confirmPassword.invalid || customForm.errors?.mismatch)">
+      <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="text-dan" *ngIf="confirmPassword.touched" >
+        <p *ngIf="confirmPassword.errors?.required">Confirm password is mandatory!</p>
+        <p *ngIf="customForm.errors?.mismatch" >Password do not match!</p>
+      </div>
+    </div>
+
+  <div class="form-group">
+      <label>PAN Card Number</label>
+      <input required type="text" placeholder="Enter your PAN card number" class="form-control" formControlName="pan" [class.is-invalid]="pan.touched && pan.invalid">
+
+      <div class="text-dan" *ngIf="pan.touched && pan.invalid" >
+        <p *ngIf="pan.errors?.required">PAN Number is mandatory!</p>
+        <p *ngIf="!pan.errors?.required && pan.errors?.panPattern;">Please enter a valid PAN number!</p>
+      </div>
+    </div>
+  
+  <button type="submit" [disabled]="customForm.invalid" class="btn">SUBMIT</button>
+  
+  </form>
+</div>
