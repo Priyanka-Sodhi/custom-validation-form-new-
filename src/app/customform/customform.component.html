@@ -59,10 +59,10 @@
   <div class="form-group">
       <label>Confirm Password</label>
       <div class="input-group">
-      <input required type="password" placeholder="Re-type your password" class="form-control" formControlName="confirmPassword" [class.is-invalid]="confirmPassword.touched && (confirmPassword.invalid || customForm.errors?.mismatch)">
+      <input required [type]="passwordType" placeholder="Re-type your password" class="form-control" formControlName="confirmPassword" [class.is-invalid]="confirmPassword.touched && (confirmPassword.invalid || customForm.errors?.mismatch)">
       <div class="input-group-append">
           <span class="input-group-text">
-            <i class="fa fa-eye"></i>
+            <i class="fa fa-eye" (click)="togglePassword()"></i>
           </span>
         </div>
       </div>
